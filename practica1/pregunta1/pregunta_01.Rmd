@@ -1,0 +1,68 @@
+---
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+#### Practica 1
+#### Nombre: konrad Benjamin Trejo Chavez
+#### Pregunta1:
+
+####Item a) El codigo muestra una secuencia de valores del 5 al -11 que progresa en pasos  tamaño 0.3.
+
+
+```{r}
+x <- seq(from = 5,to = -11,by = -0.3)
+cat ("el vector x =",x)
+```
+
+
+####Item b) El codigo muestra la sobrescritura del objeto en (a) usando  la misma secuencia con el orden invertido.
+
+```{r}
+x <- seq(from=-11,to=5,by=0.3)
+cat("el nuevo vector x = ",x)
+
+```
+
+
+####Item c) El codigo muestra la repiticion del vector que guardamos en la variable y 
+```{r}
+y <- c(-1,3,-5,7,-9)
+cat("\n el vector y = ",y)
+```
+
+#### dos veces, con cada elemento repetido 10 veces y almacena el resultado. Visualiza el resultado ordenado de mayor a menor.
+
+```{r}
+z <- rep(y ,10)
+m <- rep (y,10)
+s <-c(z,m)
+```
+
+####ordenamos  el vector en forma decreciente con el algoritmo quick-sort
+
+```{r}
+cat ("vector ordenado s=")
+sort.int(s,partial=NULL, na.last=NA, decreasing = TRUE, method= "quick")
+```
+
+####Item d) El codigo muestra un vector con las siguientes caracteristicas:
+####Secuencia con enteros del 6 al 12 (inclusive)
+####Repeticion triple del valor 5.3
+####El numero -3
+####Una secuencia de nueve valores que comienzan en 102 y termina en el n?mero que es la longitud total del vector creado en (c)
+
+
+```{r}
+m <- c(seq(from=6,to=12),rep(5.3,3),-3,seq(from=102,to=length(s),length.out = 9))
+m
+```
+
+####Confirma que la longitud del vector creado en (d) es 20
+
+```{r}
+length(m)
+
+```
+
