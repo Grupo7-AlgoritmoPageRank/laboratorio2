@@ -24,11 +24,13 @@ class(bar)
 ```{r}
 baz<-as.character(bar)
 class(baz)
+baz
 ```
 #### class definida explicitamente
 ```{r}
 qux<-as.factor(baz)
 class(qux)
+
 ```
 #### class definida explicitamente
 ```{r}
