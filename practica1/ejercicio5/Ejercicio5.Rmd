@@ -1,0 +1,55 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+  html_document: null
+---
+## Practica 1
+### Nombre : Alex Avila Santos 20160332F
+### Ejercicio5:
+
+####El siguiente código R produce un diagrama de dispersión simple 
+
+```{r}
+plot.new()
+plot.window(range(pressure$temperature),range(pressure$pressure))
+box()
+axis(1)
+axis(2)
+points(pressure$temperature,pressure$pressure)
+mtext("temperatura",side=1,line=3)
+mtext("presion", side=2, line=3)
+mtext("Presion de vapor de mercurio como una funcion de la temperatura", side = 3, line = 1, font = 2)
+
+```
+
+
+#### Describe lo que está haciendo cada llamada de función en el código R anterior, incluye una explicación del significado de cada argumento en las llamadas a función. Tu respuesta también debe incluir una explicación de las diferentes regiones y sistemas de coordenadas que se crean con este código.
+
+```{r}
+#Informa a R que se va realizar un nuevo plot
+plot.new()
+
+#Establece los limites para las coordenadas X y Y en el grafico.
+plot.window(range(pressure$temperature),range(pressure$pressure))
+
+#Dibuja un cuadro alrededor de la grafica
+box()
+
+### El eje se coloca de la siguiente manera: 1 = abajo, 2 = izquierda, 3 = arriba y 4 = derecha.
+
+#Dibuja el eje X y va 1 pues se ubica abajo
+axis(1)
+
+#Dibuja el eje Y y va 2 pues se ubica arriba
+axis(2)
+
+#Dibuja los puntos de la grafica de acuerda a cada coordenada, argumentos (x,y)
+points(pressure$temperature,pressure$pressure)
+
+#Agrega un cuadro de texto indicando en que eje(side) y a que distancia del eje se quiere poner (line), los argumentos son el texto que se mostrará, posicion del eje y distancia de dicho eje
+mtext("temperatura",side=1,line=3)
+mtext("presion", side=2, line=3)
+mtext("Presion de vapor de mercurio como una funcion de la temperatura", side = 3, line = 1, font = 2)
+
+```
