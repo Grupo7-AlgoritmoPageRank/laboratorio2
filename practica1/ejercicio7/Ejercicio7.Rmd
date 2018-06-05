@@ -14,9 +14,11 @@ output:
 ```{r}
 f1<- c(13563,-14156,-14319,16981,12921,11979,9568,8833,-12968, 8133,2)
 ```
+
 ####Entonces realiza lo siguiente:
-#####. Muestra la salida todos los elementos de f1 que, cuando se eleva a una potencia de 75, no son infinitos.
-#####. Devuelve los elementos de f1, excluyendo aquellos que resultan en infinito negativo cuando se eleva a una potencia de 75
+*Muestra la salida todos los elementos de f1 que, cuando se eleva a una potencia de 75, no son infinitos.
+
+*Devuelve los elementos de f1, excluyendo aquellos que resultan en infinito negativo cuando se eleva a una potencia de 75
 
 ```{r}
   #Nuestro vector f1 
@@ -49,7 +51,7 @@ f1<- c(13563,-14156,-14319,16981,12921,11979,9568,8833,-12968, 8133,2)
   varMatriz
 ```
 ####Entonces realizamos lo siguiente:
-#####. Identifica los índices específicos de las entradas de varMatriz que son NaN cuando se eleva varMatriz a una potencia de 65 y se divide por infinito.
+*Identifica los índices específicos de las entradas de varMatriz que son NaN cuando se eleva varMatriz a una potencia de 65 y se divide por infinito.
 ```{r}
   ##Creamos la matriz para almacenar la potencia 65
     potMatriz <- matrix(ncol = 4,nrow = 3,data = 1)
@@ -69,7 +71,7 @@ f1<- c(13563,-14156,-14319,16981,12921,11979,9568,8833,-12968, 8133,2)
     }    
 
 ```
-#####. Devuelve los valores en varMatriz que NO son NaN cuando se eleva varMatriz a una potencia de 67 y se añade infinito al resultado. Confirma que esto es idéntico a identificar aquellos valores en varMatriz que, cuando aumentan a una potencia de 67, no son iguales al infinito negativo.
+*Devuelve los valores en varMatriz que NO son NaN cuando se eleva varMatriz a una potencia de 67 y se añade infinito al resultado. Confirma que esto es idéntico a identificar aquellos valores en varMatriz que, cuando aumentan a una potencia de 67, no son iguales al infinito negativo.
 
 ```{r}
     ##Creamos la matriz para almacenar la potencia 67
@@ -97,7 +99,7 @@ f1<- c(13563,-14156,-14319,16981,12921,11979,9568,8833,-12968, 8133,2)
  
 
 ```
-#####. Identifique los valores en varMatriz que sean infinito negativo o finito cuando eleva varMatriz a una potencia de 67.
+*Identifique los valores en varMatriz que sean infinito negativo o finito cuando eleva varMatriz a una potencia de 67.
 ```{r}
     for(k in 1:12 )
       ##imprimos los valores de la matriz que cuando elevamos a la potencia 67 sean infinitos negativos o        finitos
@@ -112,9 +114,9 @@ f1<- c(13563,-14156,-14319,16981,12921,11979,9568,8833,-12968, 8133,2)
 f2 <- c(4.3,2.2,NULL,2.4,NaN,3.3,3.1,NULL,3.4,NA)
 ```
 ####Decide cuál de las siguientes afirmaciones son verdaderas y cuáles son falsas y luego usa R para confirmar:
-#####. La longitud de f2 es 8.
-#####. Llamando a which(x=is.na(x=f2)), no resultará en 4 y 8.
-#####. Verificando is.null(x=f2), proporciona la localización de dos valores NULL, presentes.
+*La longitud de f2 es 8.
+*Llamando a which(x=is.na(x=f2)), no resultará en 4 y 8.
+*Verificando is.null(x=f2), proporciona la localización de dos valores NULL, presentes.
 
 ####Respuesta VERDADERO la longitud de f2 es 8.
 ```{r}
