@@ -1,0 +1,89 @@
+---
+output:
+  pdf_document: default
+  html_document: null
+---
+## Practica 1
+### Nombre : Alex Avila Santos 20160332F
+### Pregunta2:
+
+####Item a) El código muestra una matriz de 4 x 2.
+
+```{r}
+A <- matrix(ncol=2,nrow=4,c(4.3,3.1,8.2,8.2,3.2,0.9,1.6,6.5),byrow = TRUE)
+A
+```
+
+####Item b) El código muestra las dimensiones de la matriz  (a) eliminando una fila y resulta una matriz de 3 x 2.
+
+```{r}
+
+B <- A
+#Eliminando la fila 
+B <- B[-4,] 
+B
+
+# Nueva dimension
+dim(B)
+
+```
+
+####Item C) El código muestra la sobrescritura de la segunda columna de la matriz en (a) con la misma columna ordenada de menor a mayor.
+
+```{r}
+A[,2] <- c(0.9,3.1,6.5,8.2)
+A
+```
+
+####Item d) El código muestra  la eliminacion de la cuarta fila y la primera columna de (c) que nos devolvera 1 matriz de 3 X 1 .
+
+```{r}
+D <- A
+#eliminando la cuarta fila
+D <- D[-4,]
+#eliminando la primera columna
+D <- D[,-1]
+matrix(D)
+```
+####Item e) El código muestra una matriz de 2x2 con los cuatro elementos inferiores de (c).
+
+```{r}
+E <- matrix(nrow=2,ncol=2,c(3.2,1.6,6.5,8.2))
+E
+
+```
+
+####Item f) El código muestra la sobrescritura de los elementos de (c) en las posicions (4,2),(1,2),(4,1) y (1,1) con  $\frac{-1}{2}$de los dos valores en la diagonal de (e)
+
+```{r}
+
+x <- -0.5*(E[1,1]+E[2,2])
+A[4,2] <- x
+A[1,2] <- x
+A[4,1] <- x
+A[1,1] <- x
+A
+
+```
+####Item g)Para nuestra matriz A1 verificaremos que $A1^{-1}$$A1$$-$$I_{4}$ es una matriz nula de 4 X 4.
+
+
+```{r}
+A1 <- diag(c(2,3,5,-1),nrow=4,ncol=4)
+#MAtriz A1
+A1
+
+#Inversa de A1
+InvA1 <- solve(A1)
+InvA1
+
+#Identidad 4x4
+
+I4 <- diag(1,nrow=4,ncol=4)
+I4
+#Verificando
+Nula4 <- A1*InvA1-I4
+Nula4
+#Eftivamente sale una matriz nula de 4 x4
+```
+
