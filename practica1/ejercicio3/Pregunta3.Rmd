@@ -1,0 +1,102 @@
+---
+title: "Laboratorio 1"
+author: "Rommel Bazalar Collantes"
+date: "5 de junio de 2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+### Ejercicio 3:
+####El gobierno de un país se compone de los partidos políticos: Nacional,Laborista, Verdes, Maoríes y con varios partidos mas pequeñas etiquetados como Otros.Supongamos que se pregunta a 20 habitantes de ese pais con cuál de esos partidos se identificaron más y se obtuvo la siguiente información:
+####*Hubo 12 hombres y 8 mujeres; los individuos numerados 1,5-7,12 y 16 eran mujeres.
+
+####*Las personas numeradas 1,4,12,15,16 y 19 estaban identificadas con los Laboralistas; nadie estaba identificado con los maoríes; los individuos numerads 6,9 y 11 estaban identificados con los Verdes;10 y 20 estaban identificados con los Otros y el resto indentificado con los Nacionales.
+
+
+
+####Item a) Creamos  dos vectores sexo y partidos donde cada posicion indica el numero de numeracion de las personas.
+
+```{r}
+sexo <- c("F","M","M","M","F","F","F","M","M","M","M","F","M","F","F","F","M","M","M","M")
+sexo
+partido <- c("Laboral","Nacional","Nacional","Laboral","Nacional","Verdes","Nacional","Nacional","Verdes","Otro","Verdes","Laboral","Nacional","Nacional","Laboral","Laboral","Nacional","Nacional","Laboral","Otro")
+partido
+
+```
+
+####Item b) Creación de dos factores basados en los vectores sexo y partido.
+```{r}
+fsexo <- factor(sexo)
+fsexo
+fpartido <- factor(partido)
+fpartido
+
+
+```
+
+####¿Tiene sentido usar orderer=TRUE en cualquier caso?¿Cómo R organiza los niveles?
+####Cuando crear un factor en base a un vector solo se ordena, Los niveles de un factor puede estar codificados como valores numéricos o como caracteres. Independientemente de que el factor sea numérico o carácter, sus valores son siempre almacenados internamente por R como números enteros, con lo que se consigue economizar memoria.
+
+####Item c)Use el subconjunto de factores para hacer lo siguiente:
+####*Devuelve el factor de los partidos elegidos solo por participantes hombres.
+####*Retorna el factor de géneros para quienes eligen al partido Nacional.
+```{r}
+  #Devolviendo los factores elegidos solo por el participantes hombres
+  for ( i in 1:20)
+    if(sexo[i]=='M')
+      print.factor(fpartido[i])
+  #Retornamos el factor de generos para quienes eligen al partido nacional
+  for ( i in 1:20)
+    if(partido[i]=='Nacional')
+      print.factor(fsexo[i])
+
+```
+
+####Item d)Aumentando seis personas a la encuesta y actualizados los datos.
+```{r}
+  #se crea un nuevo vector sexo  con datos actualizados
+  sexo2 <- c(sexo,"M","M","F","F","F","M")
+  #se crea un nuevo vector partido con datos actulizados
+  partido2 <- c(partido,"Nacional","Maori","Maori","Laboral","Verdes","Laboralista")
+  #Coombinamos los resultados con los factores originales en (b)
+  fsexo <- factor(sexo2)
+  fpartido <- factor(partido2)
+  #Creamos el vector confianza
+  confianza <- c(93,55,29,100,52,84,56,0,33,52,35,53,55,46,40,56,45,64,31,10,29,40,95,18,61,15)
+
+```
+####Supongamos que también se pidió a todas las personas que expresen su confianza en que los Laboristas ganarán más escaños en el parlamento que los Nacionales en las próximas elecciones y que otorgen un porcentaje subjetivo a esa confianza.
+####Para esas preguntas se obtuvieron los siguientes 26 resultados:
+####93, 55, 29, 100, 52, 84, 56, 0, 33, 52, 35, 53, 55, 46, 40, 56, 45, 64, 31, 10, 29, 40, 95, 18, 61.
+####*Crea un factor con niveles de confianza de la siguiente manera: Bajo para porcentajes [0, 30]; Moderado para porcentajes (30, 70] y Alto para porcentajes (70, 100].
+
+```{r}
+ #Creamos el vector confianza
+  confianza <- c(93,55,29,100,52,84,56,0,33,52,35,53,55,46,40,56,45,64,31,10,29,40,95,18,61,15)
+  confianza2 <- c(1:26)
+for (i in 1:26) {
+    if(confianza[i]<=30) confianza2[i] <- "Bajo"
+    else if(confianza[i]<=70) confianza2[i] <- "Moderado"
+      else confianza2[i] <- "Alto"
+}
+  #Creamos el factor confianza
+  fconfianza <- factor(confianza2)
+  fconfianza
+```
+####*Del ítem anterior, extrae los niveles correspondientes a aquellos individuos que originalmente dijeron que se identificaban con los Laboralistas. Haz esto también para los del partido Nacional. ¿Qué notaste?.
+```{r}
+  #Extraendo el factor confianza de los laboristas
+  for ( i in 1:26)
+    if(partido2[i]=='Laboral')
+      print.factor(fconfianza[i])
+  #Extraendo el factor confianza de los Nacionalistas
+  for ( i in 1:26)
+    if(partido2[i]=='Nacional')
+      print.factor(fconfianza[i])
+  
+  #Puedo notar que el partido Laborista tiene mas confianza de las personas.
+```
+
+
+
