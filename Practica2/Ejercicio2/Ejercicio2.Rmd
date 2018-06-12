@@ -1,0 +1,49 @@
+---
+title: "Laboratorio 2"
+author: "Avila Santos Alex"
+date: "11 de junio de 2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+### Ejercicio 2 : En cada una de las siguientes líneas de código, identifica qué estilo de coincidencia de argumentos se está utilizando: exacto, parcial, posicional o mixto. Si es mixto, identifica qué argumentos se especifican en cada estilo.
+
+####El entorno de evaluación de una función
+
+####Cuando se llama o se invoca una función, se crea un nuevo marco de evaluación. En este marco los argumentos formales se corresponden con los argumentos suministrados de acuerdo con las reglas de Argumento de argumentos (abajo). Las declaraciones en el cuerpo de la función son evaluadas secuencialmente en este marco de entorno.
+####Lo primero que ocurre en una evaluación de función es la coincidencia de lo formal con el argumentos reales o suministrados. Esto se hace mediante un proceso de tres pasos:
+
+. Exacta . Para cada argumento suministrado con nombre la lista de argumentos formales se busca un artículo cuyo nombre coincida exactamente.
+
+. Parcial . Cada argumento suministrado con nombre se compara con el resto argumentos formales que usan correspondencia parcial. Si el nombre del argumento proporcionado coincide exactamente con la primera parte de un argumento formal, entonces los dos argumentos se consideran para ser emparejado.
+
+. Posicional. Cada argumento suministrado no tiene que coincidir exactamente sino se respeta el orden. Si hay un argumento, retomará los argumentos restantes, etiquetado o no.
+
+. Si algún argumento permanece sin coincidencia, se declara un error. 
+
+Los argumentos suministrados y los argumentos predeterminados se tratan de manera diferente. Los argumentos suministrados a una función se evalúan en el marco de evaluación de la función de llamada. El valor por defecto los argumentos a una función se evalúan en el marco de evaluación de la función. En general, los argumentos suministrados se comportan como si fueran variables locales inicializadas con el valor proporcionado y el nombre del argumento formal correspondiente. Cambiar el valor de un suministram o argumento dentro de una función no afectará el valor de la variable en el fram de llamada.
+
+```{r}
+
+array(8:1,dim=c(2,2,2))
+#Argumentos mixto : posicional y exacto respectivamente
+
+rep(1:2,3)
+#Argumentos posicionales
+
+seq(from=10,to=8,length=5)
+#Argumentos exactos
+
+sort(decreasing=T,x=c(2,1,1,2,0.3,3,1.3))
+#Argumentos exactos
+
+which(matrix(c(T,F,T,T),2,2))
+#Argumentos posicional 
+
+which(matrix(c(T,F,T,T),2,2),a=T)
+#Argumento parcial
+
+```
+
+
