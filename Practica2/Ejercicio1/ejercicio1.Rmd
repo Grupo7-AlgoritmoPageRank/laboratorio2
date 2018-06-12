@@ -1,0 +1,55 @@
+---
+title: 'Practica2: Ejercicio1'
+author: "Konrad Trejo"
+date: "15 de mayo de 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### item a) Identifica los 20 primeros elementos contenidos en el paquete methods que se cargan al iniciar R ¿ cuantos items hay en total?
+
+#### Usamos la funcion "ls" dado que lista todo el package necesitado, pero antes  con help sabremos que argumentos necesita "ls" asi que primero usaremos esto 
+#### entonces la funcion ls retorna una arreglo con todo los objetos en este caso los metodos del paquete methods y los ordenaremos con el argumento sorted=TRUE Y pondremos todo en el arreglo elementos de los cuales imprimiremos solo 20 elementos:
+
+```{r}
+
+help(ls)     
+elementos <- ls ("package:methods", all.names = TRUE,sorted = TRUE);
+elementos[1:20]
+```
+
+#### Contamos el numero total de metodos contenidos en el arreglo elementos con el metodo length:
+```{r}
+length(elementos)
+```
+
+#### item b)Derminaremos el entorno al cual pertenece las siguientes funciones para eso usaremos la funcion enviroment
+
+```{r}
+help("environment")
+
+```
+#### Luego el unico argumento que necesita en nuestro caso es el nombre de la funcion,pero no es el unico dado que dependiendo de su uso implementa otras variables
+
+```{r}
+   
+  environment(read.table)
+  environment(data)
+  environment(matrix)
+  environment(jpeg)
+```
+
+#### Usamos ls para comprobar si smoothScatter es parte del paquete graphics
+#### Recordamos los parametros a usar
+
+```{r}
+help(ls)
+```
+
+#### Luego compararemos si pertenece al paquete graficos (graphics) donde tendra que mostrarse true
+```{r}
+ls("package:graphics")=="smoothScatter"
+```
