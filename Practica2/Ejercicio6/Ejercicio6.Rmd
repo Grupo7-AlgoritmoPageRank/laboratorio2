@@ -1,0 +1,52 @@
+---
+title: "Laboratorio 2"
+author: "Alex Avila Santos"
+date: "11 de junio de 2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+####Ejercicio 6
+
+(a) Convierta el siguiente ciclo en un ciclo implícito (utilizando alguna función de la familia apply)
+que haga exactamente lo mismo:
+```{r}
+matlist <- list(matrix(c(T,F,T,T),2,2),matrix(c("a","c","b","z","p","q"),3,2), matrix(1:8,2,4))
+matlist
+for(i in 1:length(matlist)){
+  matlist[[i]] <- t(matlist[[i]])
+}
+matlist
+
+#Usaremos lapply ya se diferencia de apply en que opera con listas. Recibe una lista y devuelve una lista
+#Los parametros serian X y la funcion a aplicar cada elemento de X
+lapply(matlist,t)
+
+```
+####(b) En R, almacena la matriz 4 x 4 x 2 x 3 como el objeto qux:
+
+```{r}
+qux <- array(96:1,dim=c(4,4,2,3))
+qux
+```
+
+####Es decir, es una matriz tetradimensional compuesta de tres bloques, siendo cada bloque una matriz compuesta por dos capas de matrices de 4 x 4. Luego, haz lo siguiente:
+. Escribe un bucle implícito que obtenga los elementos diagonales de todas las matrices de segunda capa para producir la siguiente matriz:
+
+    [,1] [,2] [,3]
+    
+[1,]  80  48   16
+
+[2,]  75  43   11
+
+[3,]  70  38    6
+
+[4,]  65  33    1
+
+```{r}
+  #creamos una matriz y le damos las diagonales de cada sub matriz
+  matrix(c(diag(qux[,,2,1]),diag(qux[,,2,2]),diag(qux[,,2,3])),nrow = 4,ncol = 3)
+
+```
+
+
