@@ -1,0 +1,39 @@
+---
+title: 'Practica2 : Pregunta 3'
+author: "konrad Trejo"
+date: "19 de junio de 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#### Item a) declaramos los vectores vec1 y vec2
+```{r}
+
+vec1 <-c(2,1,2,3,2,1,0)
+vec2 <-c(3,8,2,2,0,0,0)
+
+if(vec1[1]+vec2[2]==10) {cat("imprime el resultado\n")}
+
+if(vec1[1]>=2 && vec2[1]>=2) {cat("imprime el resultado\n")}
+
+##if(all((vec2-vec1)[c(2,6)]<7)) {cat("imprime el resultado 3\n")}
+
+if(!is.na(vec2[3])) {cat("imprime el resultado \n")}
+help(is.na)
+
+```
+#### En los casos 1,2 ,4 se cumple que impirme los resultados debido al cumplimineto de los condicionales
+
+#### Item b)  usando los vectores vec1 y vec2 anteriores imprime el producto si la suma de los vectores es mayor que 3 sino imprime solo la suma de vectores
+```{r}
+
+for(j in 1:length(vec2)){
+ if(vec1[j] + vec2[j] > 3){
+    print(paste("La suma es :", vec1[j] * vec2[j]))
+  }else{
+    print(paste("El producto es: ", vec1[j] + vec2[j]))
+   }
+  }
+```
