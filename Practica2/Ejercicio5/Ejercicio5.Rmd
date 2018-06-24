@@ -1,0 +1,125 @@
+---
+title: 'Practica2: Ejercicio 5'
+author: "konrad Trejo"
+date: "2 de junio de 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#### Item a) Programaremos el operador factorial en R, para el cual modificaremos una variable minum en un bucle while disminuyendolo en cada iteracion en 1 para 3 casos minum=5, minum=12, minum=0 
+
+#### Caso minum=5
+```{r}
+   
+   minum <-5
+   factorial <-1
+while (minum>0) {
+  
+   factorial <- minum*factorial;
+   minum <-minum-1
+}
+  factorial
+    
+```
+#### Caso minum=12
+
+```{r}
+
+   minum <-12
+   factorial <-1
+while (minum>0) {
+  
+   factorial <- minum*factorial;
+   minum <-minum-1
+}
+  factorial
+    
+```
+
+#### Caso minum=0
+
+```{r}
+   minum <-0
+   factorial <-1
+while (minum>0) {
+  
+   factorial <- minum*factorial;
+   minum <-minum-1
+}
+  factorial
+```
+
+#### Para no repetir tanto codigo podria definir una funcion para solo asi introducir los valore minum=5,minum=12,minum=0
+
+```{r}
+
+miFactorial <-function(x){
+  
+   minum <-x
+   factorial <-1
+while (minum>0) {
+  
+   factorial <- minum*factorial;
+   minum <-minum-1
+}
+  return(factorial)
+}
+
+miFactorial(5)
+miFactorial(12)
+miFactorial(0)
+
+```
+#### Item b) completamos el codigo mostrado abajo para 
+
+```{r}
+unacadena <- "R fever"
+index <- 1
+ecount <- 0
+resultado <- unacadena
+
+while(ecount<2 && index<=nchar(unacadena)){
+  caracter <- substr(unacadena, index, index) 
+  if("e" == caracter || "E" == caracter)
+    ecount <- ecount + 1 
+  if(ecount == 2)
+    resultado <- substr(unacadena, 1, index - 1) 
+    
+  index <- index + 1
+}
+resultado
+
+```
+#### Nuevamente podemos definir una funcion para hacer esto y analizar las salidas
+
+```{r}
+
+analizarCadena <-function(x){
+  
+unacadena <- x
+index <- 1
+ecount <- 0
+resultado <- unacadena
+
+while(ecount<2 && index<=nchar(unacadena)){
+  caracter <- substr(unacadena, index, index) 
+  if("e" == caracter || "E" == caracter)
+    ecount <- ecount + 1 
+  if(ecount == 2)
+    resultado <- substr(unacadena, 1, index - 1) 
+    
+  index <- index + 1
+}
+resultado
+
+
+}
+
+analizarCadena("abce_d")
+analizarCadena("feliz mañana")
+analizarCadena("forever")
+```
+
+
